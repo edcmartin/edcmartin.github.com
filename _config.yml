@@ -68,7 +68,7 @@ theme: landscape
 
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
-deploy: 
+deploy:
   type: git
   repo: git@github.com:edcmartin/edcmartin.github.com.git
   branch: master
