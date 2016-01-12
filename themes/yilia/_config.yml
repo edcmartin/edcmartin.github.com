@@ -14,7 +14,7 @@ subnav:
   #mail: "#"
   #facebook: "#"
   #google: "#"
-  #twitter: "#"
+  twitter: https://twitter.com/edc_martinyao
   #linkedin: "#"
 
 rss: /atom.xml
@@ -49,7 +49,7 @@ tagcloud: true
 #不开启——
 #friends: false
 #开启——
-friends:
+friends: false
   奥巴马的博客: http://localhost:4000/
   卡卡的美丽传说: http://localhost:4000/
 
@@ -57,4 +57,4 @@ friends:
 #不开启——
 #aboutme: false
 #开启——
-aboutme: To be or not to be, that's the question.
+aboutme: 中国计量学院10级，现小硕一枚，主研推荐系统，机器学习。
