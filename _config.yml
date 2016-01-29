@@ -4,11 +4,11 @@
 
 # Site
 title: 落入其中不愿网出
-subtitle: 新的开始
-description: 
-author: Martin Yao
+subtitle: 落入其中、不愿网出
+description: 推荐系统 | python | 数据挖掘
+author: 落 网
 email: yaoyunfeng1992@gmail.com
-language: zh-Hans
+language: zh-Hans  #zh-Hans
 timezone:
 
 # URL
@@ -64,7 +64,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: http://hexo.io/plugins/
 ## Themes: http://hexo.io/themes/
-theme: yilia
+theme: next
 
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
@@ -74,3 +74,21 @@ deploy:
   branch: master
 
 duoshuo_shortname: edcmartin
+
+avatar: /uploads/avatar.png
+
+baidu_analytics: 18e8470bdbb93d9bfd834704a5897464
+
+social:
+  GitHub: https://github.com/edcmartin
+  Twitter: https://twitter.com/edc_martinyao
+  微博: http://weibo.com/yaoyunf
+  #douban: http://douban.com/people/your-user-name
+  知乎: http://www.zhihu.com/people/edcmartin
+  # 等等
+
+# title, chinese available
+links_title: Links
+# links
+links:
+  yibo: http://yiboin.github.io/
