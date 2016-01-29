@@ -1672,7 +1672,7 @@ pre .css ~ * .id {
   display: inline-block;
   color: #fff;
   line-height: 20px;
-  font-size: 12px;
+  font-size: 2px;
   margin: 0 3px 30px;
 }
 #page-nav .page-number:hover {
