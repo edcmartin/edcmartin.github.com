@@ -73,11 +73,11 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     scheme: 'Mist',
-    sidebar: "always",
+    sidebar: {"position":"right","display":"always"},
     fancybox: true,
     motion: true,
     duoshuo: {
-      userId: 0,
+      userId: 336695,
       author: '博主'
     }
   };
@@ -107,10 +107,14 @@
 
 
 
+
+
   
+  
+    
   
 
-  <div class="container one-collumn   page-archive  ">
+  <div class="container one-collumn sidebar-position-right  page-archive  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -139,7 +143,7 @@
   
 
   
-    <ul id="menu" class="menu ">
+    <ul id="menu" class="menu">
       
         
         <li class="menu-item menu-item-home">
@@ -158,6 +162,16 @@
               <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
             
             分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
           </a>
         </li>
       
@@ -182,18 +196,16 @@
         </li>
       
         
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
             
-              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-heartbeat fa-fw"></i> <br />
             
-            关于
+            公益404
           </a>
         </li>
       
 
-      
-      
       
     </ul>
   
@@ -337,7 +349,7 @@
       <section class="site-overview sidebar-panel  sidebar-panel-active ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
-               src="/images/avatar.png"
+               src="/uploads/avatar.png"
                alt="落 网" />
           <p class="site-author-name" itemprop="name">落 网</p>
           <p class="site-description motion-element" itemprop="description">推荐系统 | python | 数据挖掘</p>
@@ -349,7 +361,7 @@
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
-          
+
           
 
           
@@ -406,14 +418,17 @@
         
         
 
-        <div class="links-of-author motion-element">
+        
+        <div class="links-of-blogroll motion-element">
           
-            <p class="site-author-name">Links</p>
-            
-              <span class="links-of-author-item">
-                <a href="http://yiboin.github.io/" target="_blank">yibo</a>
-              </span>
-            
+            <div class="links-of-blogroll-title">Links</div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://yiboin.github.io/" target="_blank">yibo</a>
+                </li>
+              
+            </ul>
           
         </div>
 
@@ -436,7 +451,7 @@
   &copy; 
   <span itemprop="copyrightYear">2016</span>
   <span class="with-love">
-    <i class="icon-next-heart fa fa-heart"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">落 网</span>
 </div>
@@ -457,7 +472,9 @@
       </div>
     </footer>
 
-    <div class="back-to-top"></div>
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
   </div>
 
   
@@ -465,6 +482,14 @@
 
   
 
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
 
 
   <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
@@ -536,6 +561,7 @@
 
   
   
+  
   <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
       tex2jax: {
@@ -562,8 +588,8 @@
 
 
   
-  
 
+  
 
 </body>
 </html>
