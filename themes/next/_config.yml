@@ -2,7 +2,7 @@
 # Site Information Settings
 # ---------------------------------------------------------------
 
-# Place your favicon.ico to /source directory.
+# Put your favicon.ico into `hexo-site/source/` directory.
 favicon: /favicon.ico
 
 # Set default keywords (Use a comma to separate)
@@ -23,25 +23,24 @@ since: 2016
 # Menu Settings
 # ---------------------------------------------------------------
 
-# When running hexo in a subdirectory (e.g. domain.tld/blog)
-# Remove leading slashes ( "/archives" -> "archives" )
+# When running the site in a subdirectory (e.g. domain.tld/blog), remove the leading slash (/archives -> archives)
 menu:
   home: /
   categories: /categories
+  about: /about
   archives: /archives
   tags: /tags
-  about: /about
   #commonweal: /404.html
 
 
 # Enable/Disable menu icons.
 # Icon Mapping:
 #   Map a menu item to a specific FontAwesome icon name.
-#   Key is the name of menu item and value is the name of FontAwsome icon.
+#   Key is the name of menu item and value is the name of FontAwsome icon. Key is case-senstive.
 #   When an question mask icon presenting up means that the item has no mapping icon.
 menu_icons:
-  enable: true
-  # Icon Mapping.
+  enable: false
+  #KeyMapsToMenuItemKey: NameOfTheIconFromFontAwesome
   home: home
   about: user
   categories: th
@@ -68,15 +67,22 @@ scheme: Mist
 # ---------------------------------------------------------------
 
 
-# Social links
-# social:
-  #GitHub:
-  #Others:
+# Social Links
+# Key is the link label showing to end users.
+# Value is the target link (E.g. GitHub: https://github.com/iissnan)
+#social:
+  #LinkLabel: Link
 
-# Social Icons
+
+# Social Links Icons
+# Icon Mapping:
+#   Map a menu item to a specific FontAwesome icon name.
+#   Key is the name of the item and value is the name of FontAwsome icon. Key is case-senstive.
+#   When an globe mask icon presenting up means that the item has no mapping icon.
 social_icons:
   enable: true
-  # Icon Mappings
+  # Icon Mappings.
+  # KeyMapsToSocalItemKey: NameOfTheIconFromFontAwesome
   GitHub: github
   Twitter: twitter
   #Weibo: weibo
@@ -86,14 +92,10 @@ social_icons:
 # Sidebar Avatar
 # in theme directory(source/images): /images/avatar.jpg
 # in site  directory(source/uploads): /uploads/avatar.jpg
-# default : /images/default_avatar.jpg
-avatar: /images/avatar.png
+#avatar:
 
 
-# TOC in the Sidebar
-# 是否为侧边栏文章的目录自动添加索引，默认开启。设置为 `false` 关闭。
-toc_list_number: true
-
+# Table Of Ccontents in the Sidebar
 toc:
   enable: true
 
@@ -107,28 +109,21 @@ toc:
 #creative_commons: by-nc-sa
 #creative_commons:
 
+
 sidebar:
   # Sidebar Position, available value: left | right
   #position: left
-  #position: right
+  position: right
 
   # Sidebar Display, available value:
   #  - post    expand on posts automatically. Default.
   #  - always  expand for all pages automatically
   #  - hide    expand only when click on the sidebar toggle icon.
-  #  - remove  Totally remove sidebar including sidebar toggle icon.
+  #  - remove  Totally remove sidebar including sidebar toggler.
   #display: post
   display: always
   #display: hide
   #display: remove
-
-# Sidebar 侧栏行为，可选值有
-#  - post   默认值，在文章页面自动展开侧栏
-#  - always 在所有页面自动展开侧栏
-#  - hide   在手动点击侧栏的开关按钮时展开
-#sidebar: post
-sidebar: always
-#sidebar: hide
 
 
 
@@ -150,15 +145,19 @@ custom_logo:
 # Available value:
 #    normal | night | night eighties | night blue | night bright
 # https://github.com/chriskempson/tomorrow-theme
-highlight_theme: night
+highlight_theme: night eighties
+
 
 # Automatically scroll page to section which is under <!-- more --> mark.
 scroll_to_more: true
 
-# Automatically Excerpt
+
+# Automatically Excerpt. Not recommand.
+# Please use <!-- more --> in the post to control excerpt accurately.
 auto_excerpt:
   enable: false
   length: 150
+
 
 # Use Lato font
 use_font_lato: true
@@ -185,8 +184,15 @@ mathjax: true
 # Disqus
 #disqus_shortname:
 
+# Baidu Share
+# Available value:
+#    button | slide
+#baidushare:
+##  type: button
+
 # Share
-#jiathis: true
+#jiathis:
+#add_this_id:
 
 # Share
 duoshuo_share: true
@@ -199,6 +205,9 @@ duoshuo_share: true
 # Google Analytics
 #google_analytics:
 
+# CNZZ count
+#cnzz_siteid:
+
 
 # Make duoshuo show UA
 # user_id must NOT be null when admin_enable is true!
@@ -206,8 +215,8 @@ duoshuo_share: true
 duoshuo_info:
   ua_enable: true
   admin_enable: false
-  user_id: 0
-  #admin_nickname: ROOT
+  user_id: 336695
+  #admin_nickname: Author
 
 
 # Facebook SDK Support.
@@ -231,10 +240,12 @@ leancloud_visitors:
 # Tencent analytics ID
 # tencent_analytics:
 
+# Enable baidu push so that the blog will push the url to baidu automatically which is very helpful for SEO
+baidu_push: false
 
-
-
-
+reward_comment: 坚持原创技术分享，您的支持将鼓励我继续创作！
+wechatpay: /images/wechatpay.png
+alipay: /images/alipay.jpg
 
 #! ---------------------------------------------------------------
 #! DO NOT EDIT THE FOLLOWING SETTINGS
@@ -255,3 +266,8 @@ images: images
 
 # Theme version
 version: 0.5.0
+
+
+links_title: Links
+links:
+  yibo: http://yiboin.github.io/

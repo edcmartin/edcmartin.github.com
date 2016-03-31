@@ -36,7 +36,7 @@
           {% include '_partials/duoshuo-hot-articles.swig' %}
           {% include '_partials/comments.swig' %}
         </div>
-        {% if theme.sidebar !== 'remove' %}
+        {% if theme.sidebar.display !== 'remove' %}
           {% block sidebar %}{% endblock %}
         {% endif %}
       </div>
@@ -48,7 +48,9 @@
       </div>
     </footer>
 
-    <div class="back-to-top"></div>
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
   </div>
 
   {% include '_scripts/vendors.swig' %}
@@ -63,9 +65,10 @@
 
   {% include '_scripts/third-party/comments.swig' %}
   {% include '_scripts/third-party/tinysou.swig' %}
+  {% include '_scripts/third-party/localsearch.swig' %}
   {% include '_scripts/third-party/mathjax.swig' %}
-  {% include '_scripts/third-party/baidushare.swig' %}
   {% include '_scripts/third-party/lean-analytics.swig' %}
+  {% include '_scripts/baidu-push.swig' %}
 
 </body>
 </html>
