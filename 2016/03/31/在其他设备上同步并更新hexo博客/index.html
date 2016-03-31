@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="hexo," />
 
 
 
@@ -57,16 +57,25 @@
 
 
 
-<meta name="description" content="今天睡过头了">
+<meta name="description" content="我们利用Hexo在Github上创建了属于我们自己的主页，并可以在一台设备上更新博客内容。若想在其他设备上更新博客怎么实现：
+
+如何在两台设备间同步博客的内容
+在另一台设备如何更新博客">
 <meta property="og:type" content="article">
-<meta property="og:title" content="新的一天">
-<meta property="og:url" content="http://yoursite.com/2016/01/12/新的一天/index.html">
+<meta property="og:title" content="在其他设备上同步并更新hexo博客">
+<meta property="og:url" content="http://yoursite.com/2016/03/31/在其他设备上同步并更新hexo博客/index.html">
 <meta property="og:site_name" content="落入其中不愿网出">
-<meta property="og:description" content="今天睡过头了">
-<meta property="og:updated_time" content="2016-02-27T01:37:37.232Z">
+<meta property="og:description" content="我们利用Hexo在Github上创建了属于我们自己的主页，并可以在一台设备上更新博客内容。若想在其他设备上更新博客怎么实现：
+
+如何在两台设备间同步博客的内容
+在另一台设备如何更新博客">
+<meta property="og:updated_time" content="2016-03-31T05:52:07.688Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="新的一天">
-<meta name="twitter:description" content="今天睡过头了">
+<meta name="twitter:title" content="在其他设备上同步并更新hexo博客">
+<meta name="twitter:description" content="我们利用Hexo在Github上创建了属于我们自己的主页，并可以在一台设备上更新博客内容。若想在其他设备上更新博客怎么实现：
+
+如何在两台设备间同步博客的内容
+在另一台设备如何更新博客">
 
 
 
@@ -84,7 +93,7 @@
   };
 </script>
 
-  <title> 新的一天 | 落入其中不愿网出 </title>
+  <title> 在其他设备上同步并更新hexo博客 | 落入其中不愿网出 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -232,7 +241,7 @@
             
             
               
-                新的一天
+                在其他设备上同步并更新hexo博客
               
             
           </h1>
@@ -244,8 +253,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-01-12T10:10:30+08:00" content="2016-01-12">
-              2016-01-12
+            <time itemprop="dateCreated" datetime="2016-03-31T13:13:02+08:00" content="2016-03-31">
+              2016-03-31
             </time>
           </span>
 
@@ -255,8 +264,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/01/12/新的一天/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/12/新的一天/" itemprop="commentsCount"></span>
+                <a href="/2016/03/31/在其他设备上同步并更新hexo博客/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/31/在其他设备上同步并更新hexo博客/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -277,11 +286,37 @@
       
 
       
-        <h2 id="u4ECA_u5929_u7761_u8FC7_u5934_u4E86"><a href="#u4ECA_u5929_u7761_u8FC7_u5934_u4E86" class="headerlink" title="今天睡过头了"></a>今天睡过头了</h2>
+        <p>我们利用Hexo在Github上创建了属于我们自己的主页，并可以在一台设备上更新博客内容。<br>若想在其他设备上更新博客怎么实现：</p>
+<ul>
+<li>如何在两台设备间同步博客的内容</li>
+<li>在另一台设备如何更新博客</li>
+</ul>
+<a id="more"></a>
+<h2 id="u540C_u6B65_u535A_u5BA2"><a href="#u540C_u6B65_u535A_u5BA2" class="headerlink" title="同步博客"></a>同步博客</h2><p>设备A更新博客内容后，并发布到Github自己的主页中，将本地仓库中的文件都push到Github的项目中(分支blog存放git仓库文件，master分支发布博客网页)。</p>
+<ol>
+<li><p>设备B首先从自己的Github中获取资源</p>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">status</span></span><br><span class="line">git pull origin blog</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在设备B中添加新的博客</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo <span class="keyword">new</span> <span class="string">"博客"</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将本地文件push到blog分支</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="label">git</span> status</span><br><span class="line"><span class="label">git</span> <span class="keyword">add </span>.</span><br><span class="line"><span class="label">git</span> commit -m <span class="string">"add"</span></span><br><span class="line"><span class="label">git</span> <span class="keyword">push </span>origin <span class="keyword">blog</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将网页发布到主页中(master分支)</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo <span class="keyword">generate</span> -<span class="literal">d</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+
       
     </div>
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/hexo/" rel="tag">#hexo</a>
+          
+        </div>
       
 
       
@@ -309,10 +344,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/01/12/新的一天/"
-     data-title="新的一天"
+        <div class="ds-share flat" data-thread-key="2016/03/31/在其他设备上同步并更新hexo博客/"
+     data-title="在其他设备上同步并更新hexo博客"
      data-content=""
-     data-url="http://yoursite.com/2016/01/12/新的一天/">
+     data-url="http://yoursite.com/2016/03/31/在其他设备上同步并更新hexo博客/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -339,8 +374,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/01/12/新的一天/"
-           data-title="新的一天" data-url="http://yoursite.com/2016/01/12/新的一天/">
+      <div class="ds-thread" data-thread-key="2016/03/31/在其他设备上同步并更新hexo博客/"
+           data-title="在其他设备上同步并更新hexo博客" data-url="http://yoursite.com/2016/03/31/在其他设备上同步并更新hexo博客/">
       </div>
     
   </div>
@@ -395,7 +430,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -469,7 +504,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#u4ECA_u5929_u7761_u8FC7_u5934_u4E86"><span class="nav-number">1.</span> <span class="nav-text">今天睡过头了</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#u540C_u6B65_u535A_u5BA2"><span class="nav-number">1.</span> <span class="nav-text">同步博客</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
