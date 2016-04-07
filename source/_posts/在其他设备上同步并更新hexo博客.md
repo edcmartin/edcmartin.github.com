@@ -3,6 +3,9 @@ date: 2016-01-11 13:13:02
 tags: 
 - hexo
 ---
+<!--生成网易云音乐flash插件-->
+<embed src="http://music.163.com/style/swf/widget.swf?sid=21973899&type=2&auto=0&width=320&height=66" width="340" height="86"  allowNetworking="all"></embed>
+
 我们利用Hexo在Github上创建了属于我们自己的主页，并可以在一台设备上更新博客内容。
 若想在其他设备上更新博客怎么实现：
 * 如何在两台设备间同步博客的内容
@@ -33,3 +36,7 @@ git push origin blog
 ```
 hexo generate -d
 ```
+
+<!--插入MV-->
+在 , 也不见 电影<再见,在也不见>主题曲 歌词版-- 孙燕姿
+<embed src="http://player.yinyuetai.com/video/player/2540886/v_0.swf" quality="high" width="480" height="334" align="middle"  allowScriptAccess="sameDomain" allowfullscreen="true" type="application/x-shockwave-flash"></embed>
