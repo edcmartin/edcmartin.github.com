@@ -96,5 +96,7 @@ y = np.linspace(0,4,20)
 plt.plot(x, y) #画线
 plt.plot(x, y, 'o') #画点
 ```
- <!--![drawline](/2016/02/10/NumPy基础/drawline.png)-->
 ![drawline](http://ww1.sinaimg.cn/large/713ab781gw1f2oggp3yq7j20ah074mxc.jpg)
+<!-- 在 hexo 目录，执行
+npm install https://github.com/CodeFalling/hexo-asset-image --save -->
+<!-- ![drawline](NumPy基础/drawline.png) -->
