@@ -110,7 +110,7 @@ The `predictions_0` function below will always predict that a passenger did not 
     # Make the predictions
     predictions = predictions_0(data)
 
-### Question 1
+## Question 1
 *Using the RMS Titanic data, how accurate would a prediction be that none of the passengers survived?*  
 **Hint:** Run the code cell below to see the accuracy of this prediction.
 
@@ -162,7 +162,7 @@ Fill in the missing code below so that the function will make this prediction.
     # Make the predictions
     predictions = predictions_1(data)
 
-### Question 2
+## Question 2
 *How accurate would a prediction be that all female passengers survived and the remaining passengers did not survive?*  
 **Hint:** Run the code cell below to see the accuracy of this prediction.
 
@@ -213,7 +213,7 @@ Fill in the missing code below so that the function will make this prediction.
     # Make the predictions
     predictions = predictions_2(data)
 
-### Question 3
+## Question 3
 *How accurate would a prediction be that all female passengers and all male passengers younger than 10 survived?*  
 **Hint:** Run the code cell below to see the accuracy of this prediction.
 
@@ -236,7 +236,6 @@ Use the `survival_stats` function below to to examine various survival statistic
     survival_stats(data, outcomes, 'Age',["Sex == 'female'","Pclass == 3"])
 
 
-![output_27_0](Udacity机器学习-Titanic-Survival-Exploration/output_27_0.png)
 ![output](http://ww3.sinaimg.cn/large/713ab781jw1f40ikdnwjkj20du0axq3e.jpg)
 
 
@@ -269,7 +268,7 @@ Make sure to keep track of the various features and conditions you tried before 
     # Make the predictions
     predictions = predictions_3(data)
 
-### Question 4
+## Question 4
 *Describe the steps you took to implement the final prediction model so that it got an accuracy of at least 80%. What features did you look at? Were certain features more informative than others? Which conditions did you use to split the survival outcomes in the data? How accurate are your predictions?*  
 **Hint:** Run the code cell below to see the accuracy of your predictions.
 
@@ -279,13 +278,15 @@ Make sure to keep track of the various features and conditions you tried before 
     Predictions have an accuracy of 80.25%.
 
 > **Answer**: *Predictions have an accuracy of 80.25%.*
+
+
 # Conclusion
 
 After several iterations of exploring and conditioning on the data, you have built a useful algorithm for predicting the survival of each passenger aboard the RMS Titanic. The technique applied in this project is a manual implementation of a simple machine learning model, the *decision tree*. A decision tree splits a set of data into smaller and smaller groups (called *nodes*), by one feature at a time. Each time a subset of the data is split, our predictions become more accurate if each of the resulting subgroups are more homogeneous (contain similar labels) than before. The advantage of having a computer do things for us is that it will be more exhaustive and more precise than our manual exploration above. [This link](http://www.r2d3.us/visual-intro-to-machine-learning-part-1/) provides another introduction into machine learning using a decision tree.
 
 A decision tree is just one of many models that come from *supervised learning*. In supervised learning, we attempt to use features of the data to predict or model things with objective outcome labels. That is to say, each of our data points has a known outcome value, such as a categorical, discrete label like `'Survived'`, or a numerical, continuous value like predicting the price of a house.
 
-### Question 5
+## Question 5
 *Think of a real-world scenario where supervised learning could be applied. What would be the outcome variable that you are trying to predict? Name two features about the data used in this scenario that might be helpful for making the predictions.*  
 
 **Answer**: *House price predict is a supervised learning. We can use the house's area, size and years and so on to prediction the house's price.*
