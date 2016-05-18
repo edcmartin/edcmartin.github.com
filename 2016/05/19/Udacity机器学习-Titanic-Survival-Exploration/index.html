@@ -66,7 +66,7 @@
 <meta property="og:image" content="http://ww3.sinaimg.cn/large/713ab781jw1f40igyfom9j20du0axjrs.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/713ab781jw1f40iizk5d7j20e10axgm4.jpg">
 <meta property="og:image" content="http://ww3.sinaimg.cn/large/713ab781jw1f40ikdnwjkj20du0axq3e.jpg">
-<meta property="og:updated_time" content="2016-05-18T19:10:48.090Z">
+<meta property="og:updated_time" content="2016-05-18T20:03:02.082Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Udacity机器学习:Titanic Survival Exploration">
 <meta name="twitter:description" content="Machine Learning Engineer NanodegreeIntroduction and FoundationsProject 0: Titanic Survival ExplorationIn 1912, the ship RMS Titanic struck an iceberg on its maiden voyage and sank, resulting in the d">
@@ -355,7 +355,7 @@ Predictions have an accuracy of 60.00%.
 
 # Make the predictions
 predictions = predictions_0(data)
-</code></pre><h3 id="Question_1"><a href="#Question_1" class="headerlink" title="Question 1"></a>Question 1</h3><p><em>Using the RMS Titanic data, how accurate would a prediction be that none of the passengers survived?</em><br><strong>Hint:</strong> Run the code cell below to see the accuracy of this prediction.</p>
+</code></pre><h2 id="Question_1"><a href="#Question_1" class="headerlink" title="Question 1"></a>Question 1</h2><p><em>Using the RMS Titanic data, how accurate would a prediction be that none of the passengers survived?</em><br><strong>Hint:</strong> Run the code cell below to see the accuracy of this prediction.</p>
 <pre><code>print accuracy_score(outcomes, predictions)
 
 Predictions have an accuracy of 61.62%.
@@ -387,7 +387,7 @@ Predictions have an accuracy of 61.62%.
 
 # Make the predictions
 predictions = predictions_1(data)
-</code></pre><h3 id="Question_2"><a href="#Question_2" class="headerlink" title="Question 2"></a>Question 2</h3><p><em>How accurate would a prediction be that all female passengers survived and the remaining passengers did not survive?</em><br><strong>Hint:</strong> Run the code cell below to see the accuracy of this prediction.</p>
+</code></pre><h2 id="Question_2"><a href="#Question_2" class="headerlink" title="Question 2"></a>Question 2</h2><p><em>How accurate would a prediction be that all female passengers survived and the remaining passengers did not survive?</em><br><strong>Hint:</strong> Run the code cell below to see the accuracy of this prediction.</p>
 <pre><code>print accuracy_score(outcomes, predictions)
 
 Predictions have an accuracy of 78.68%.
@@ -419,7 +419,7 @@ Predictions have an accuracy of 78.68%.
 
 # Make the predictions
 predictions = predictions_2(data)
-</code></pre><h3 id="Question_3"><a href="#Question_3" class="headerlink" title="Question 3"></a>Question 3</h3><p><em>How accurate would a prediction be that all female passengers and all male passengers younger than 10 survived?</em><br><strong>Hint:</strong> Run the code cell below to see the accuracy of this prediction.</p>
+</code></pre><h2 id="Question_3"><a href="#Question_3" class="headerlink" title="Question 3"></a>Question 3</h2><p><em>How accurate would a prediction be that all female passengers and all male passengers younger than 10 survived?</em><br><strong>Hint:</strong> Run the code cell below to see the accuracy of this prediction.</p>
 <pre><code>print accuracy_score(outcomes, predictions)
 
 Predictions have an accuracy of 79.24%.
@@ -453,16 +453,16 @@ Predictions have an accuracy of 79.24%.
 
 # Make the predictions
 predictions = predictions_3(data)
-</code></pre><h3 id="Question_4"><a href="#Question_4" class="headerlink" title="Question 4"></a>Question 4</h3><p><em>Describe the steps you took to implement the final prediction model so that it got an accuracy of at least 80%. What features did you look at? Were certain features more informative than others? Which conditions did you use to split the survival outcomes in the data? How accurate are your predictions?</em><br><strong>Hint:</strong> Run the code cell below to see the accuracy of your predictions.</p>
+</code></pre><h2 id="Question_4"><a href="#Question_4" class="headerlink" title="Question 4"></a>Question 4</h2><p><em>Describe the steps you took to implement the final prediction model so that it got an accuracy of at least 80%. What features did you look at? Were certain features more informative than others? Which conditions did you use to split the survival outcomes in the data? How accurate are your predictions?</em><br><strong>Hint:</strong> Run the code cell below to see the accuracy of your predictions.</p>
 <pre><code>print accuracy_score(outcomes, predictions)
 
 Predictions have an accuracy of 80.25%.
 </code></pre><blockquote>
 <p><strong>Answer</strong>: <em>Predictions have an accuracy of 80.25%.</em></p>
-<h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1></blockquote>
-<p>After several iterations of exploring and conditioning on the data, you have built a useful algorithm for predicting the survival of each passenger aboard the RMS Titanic. The technique applied in this project is a manual implementation of a simple machine learning model, the <em>decision tree</em>. A decision tree splits a set of data into smaller and smaller groups (called <em>nodes</em>), by one feature at a time. Each time a subset of the data is split, our predictions become more accurate if each of the resulting subgroups are more homogeneous (contain similar labels) than before. The advantage of having a computer do things for us is that it will be more exhaustive and more precise than our manual exploration above. <a href="http://www.r2d3.us/visual-intro-to-machine-learning-part-1/" target="_blank" rel="external">This link</a> provides another introduction into machine learning using a decision tree.</p>
+</blockquote>
+<h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1><p>After several iterations of exploring and conditioning on the data, you have built a useful algorithm for predicting the survival of each passenger aboard the RMS Titanic. The technique applied in this project is a manual implementation of a simple machine learning model, the <em>decision tree</em>. A decision tree splits a set of data into smaller and smaller groups (called <em>nodes</em>), by one feature at a time. Each time a subset of the data is split, our predictions become more accurate if each of the resulting subgroups are more homogeneous (contain similar labels) than before. The advantage of having a computer do things for us is that it will be more exhaustive and more precise than our manual exploration above. <a href="http://www.r2d3.us/visual-intro-to-machine-learning-part-1/" target="_blank" rel="external">This link</a> provides another introduction into machine learning using a decision tree.</p>
 <p>A decision tree is just one of many models that come from <em>supervised learning</em>. In supervised learning, we attempt to use features of the data to predict or model things with objective outcome labels. That is to say, each of our data points has a known outcome value, such as a categorical, discrete label like <code>&#39;Survived&#39;</code>, or a numerical, continuous value like predicting the price of a house.</p>
-<h3 id="Question_5"><a href="#Question_5" class="headerlink" title="Question 5"></a>Question 5</h3><p><em>Think of a real-world scenario where supervised learning could be applied. What would be the outcome variable that you are trying to predict? Name two features about the data used in this scenario that might be helpful for making the predictions.</em>  </p>
+<h2 id="Question_5"><a href="#Question_5" class="headerlink" title="Question 5"></a>Question 5</h2><p><em>Think of a real-world scenario where supervised learning could be applied. What would be the outcome variable that you are trying to predict? Name two features about the data used in this scenario that might be helpful for making the predictions.</em>  </p>
 <p><strong>Answer</strong>: <em>House price predict is a supervised learning. We can use the house’s area, size and years and so on to prediction the house’s price.</em></p>
 <blockquote>
 <p><strong>Note</strong>: Once you have completed all of the code implementations and successfully answered each question above, you may finalize your work by exporting the iPython Notebook as an HTML document. You can do this by using the menu above and navigating to<br><strong>File -&gt; Download as -&gt; HTML (.html)</strong>. Include the finished document along with this notebook as your submission.</p>
@@ -696,7 +696,7 @@ Predictions have an accuracy of 80.25%.
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Machine_Learning_Engineer_Nanodegree"><span class="nav-number">1.</span> <span class="nav-text">Machine Learning Engineer Nanodegree</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction_and_Foundations"><span class="nav-number">1.1.</span> <span class="nav-text">Introduction and Foundations</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Project_0_3A_Titanic_Survival_Exploration"><span class="nav-number">1.2.</span> <span class="nav-text">Project 0: Titanic Survival Exploration</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Getting_Started"><span class="nav-number">2.</span> <span class="nav-text">Getting Started</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Making_Predictions"><span class="nav-number">3.</span> <span class="nav-text">Making Predictions</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Question_1"><span class="nav-number">3.0.1.</span> <span class="nav-text">Question 1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Question_2"><span class="nav-number">3.0.2.</span> <span class="nav-text">Question 2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Question_3"><span class="nav-number">3.0.3.</span> <span class="nav-text">Question 3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Question_4"><span class="nav-number">3.0.4.</span> <span class="nav-text">Question 4</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Conclusion"><span class="nav-number">4.</span> <span class="nav-text">Conclusion</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Question_5"><span class="nav-number">4.0.1.</span> <span class="nav-text">Question 5</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Machine_Learning_Engineer_Nanodegree"><span class="nav-number">1.</span> <span class="nav-text">Machine Learning Engineer Nanodegree</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction_and_Foundations"><span class="nav-number">1.1.</span> <span class="nav-text">Introduction and Foundations</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Project_0_3A_Titanic_Survival_Exploration"><span class="nav-number">1.2.</span> <span class="nav-text">Project 0: Titanic Survival Exploration</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Getting_Started"><span class="nav-number">2.</span> <span class="nav-text">Getting Started</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Making_Predictions"><span class="nav-number">3.</span> <span class="nav-text">Making Predictions</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Question_1"><span class="nav-number">3.1.</span> <span class="nav-text">Question 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Question_2"><span class="nav-number">3.2.</span> <span class="nav-text">Question 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Question_3"><span class="nav-number">3.3.</span> <span class="nav-text">Question 3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Question_4"><span class="nav-number">3.4.</span> <span class="nav-text">Question 4</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Conclusion"><span class="nav-number">4.</span> <span class="nav-text">Conclusion</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Question_5"><span class="nav-number">4.1.</span> <span class="nav-text">Question 5</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
