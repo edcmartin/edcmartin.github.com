@@ -1,0 +1,860 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Titanic,Udacity,machine learning," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="Machine Learning Engineer NanodegreeIntroduction and FoundationsProject 0: Titanic Survival ExplorationIn 1912, the ship RMS Titanic struck an iceberg on its maiden voyage and sank, resulting in the d">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Udacity机器学习:Titanic Survival Exploration">
+<meta property="og:url" content="http://yoursite.com/2016/05/19/Udacity机器学习-Titanic-Survival-Exploration/index.html">
+<meta property="og:site_name" content="落入其中不愿网出">
+<meta property="og:description" content="Machine Learning Engineer NanodegreeIntroduction and FoundationsProject 0: Titanic Survival ExplorationIn 1912, the ship RMS Titanic struck an iceberg on its maiden voyage and sank, resulting in the d">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/713ab781jw1f40igyfom9j20du0axjrs.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/713ab781jw1f40iizk5d7j20e10axgm4.jpg">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/713ab781jw1f40ikdnwjkj20du0axq3e.jpg">
+<meta property="og:updated_time" content="2016-05-18T19:10:48.090Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Udacity机器学习:Titanic Survival Exploration">
+<meta name="twitter:description" content="Machine Learning Engineer NanodegreeIntroduction and FoundationsProject 0: Titanic Survival ExplorationIn 1912, the ship RMS Titanic struck an iceberg on its maiden voyage and sank, resulting in the d">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 336695,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> Udacity机器学习:Titanic Survival Exploration | 落入其中不愿网出 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?18e8470bdbb93d9bfd834704a5897464";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">落入其中不愿网出</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">落入其中、不愿网出</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Udacity机器学习:Titanic Survival Exploration
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-19T00:46:11+08:00" content="2016-05-19">
+              2016-05-19
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/19/Udacity机器学习-Titanic-Survival-Exploration/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/19/Udacity机器学习-Titanic-Survival-Exploration/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Machine_Learning_Engineer_Nanodegree"><a href="#Machine_Learning_Engineer_Nanodegree" class="headerlink" title="Machine Learning Engineer Nanodegree"></a>Machine Learning Engineer Nanodegree</h1><h2 id="Introduction_and_Foundations"><a href="#Introduction_and_Foundations" class="headerlink" title="Introduction and Foundations"></a>Introduction and Foundations</h2><h2 id="Project_0_3A_Titanic_Survival_Exploration"><a href="#Project_0_3A_Titanic_Survival_Exploration" class="headerlink" title="Project 0: Titanic Survival Exploration"></a>Project 0: Titanic Survival Exploration</h2><p>In 1912, the ship RMS Titanic struck an iceberg on its maiden voyage and sank, resulting in the deaths of most of its passengers and crew. In this introductory project, we will explore a subset of the RMS Titanic passenger manifest to determine which features best predict whether someone survived or did not survive. To complete this project, you will need to implement several conditional predictions and answer the questions below. Your project submission will be evaluated based on the completion of the code and your responses to the questions.</p>
+<blockquote>
+<p><strong>Tip:</strong> Quoted sections like this will provide helpful instructions on how to navigate and use an iPython notebook. </p>
+</blockquote>
+<a id="more"></a>
+<h1 id="Getting_Started"><a href="#Getting_Started" class="headerlink" title="Getting Started"></a>Getting Started</h1><p>To begin working with the RMS Titanic passenger data, we’ll first need to <code>import</code> the functionality we need, and load our data into a <code>pandas</code> DataFrame.<br>Run the code cell below to load our data and display the first few entries (passengers) for examination using the <code>.head()</code> function.</p>
+<blockquote>
+<p><strong>Tip:</strong> You can run a code cell by clicking on the cell and using the keyboard shortcut <strong>Shift + Enter</strong> or <strong>Shift + Return</strong>. Alternatively, a code cell can be executed using the <strong>Play</strong> button in the hotbar after selecting it. Markdown cells (text cells like this one) can be edited by double-clicking, and saved using these same shortcuts. <a href="http://daringfireball.net/projects/markdown/syntax" target="_blank" rel="external">Markdown</a> allows you to write easy-to-read plain text that can be converted to HTML.</p>
+</blockquote>
+<pre><code>import numpy as np
+import pandas as pd
+
+# RMS Titanic data visualization code 
+from titanic_visualizations import survival_stats
+from IPython.display import display
+%matplotlib inline
+
+# Load the dataset
+in_file = &apos;titanic_data.csv&apos;
+full_data = pd.read_csv(in_file)
+
+# Print the first few entries of the RMS Titanic data
+display(full_data.head())
+</code></pre><p>From a sample of the RMS Titanic data, we can see the various features present for each passenger on the ship:</p>
+<ul>
+<li><strong>Survived</strong>: Outcome of survival (0 = No; 1 = Yes)</li>
+<li><strong>Pclass</strong>: Socio-economic class (1 = Upper class; 2 = Middle class; 3 = Lower class)</li>
+<li><strong>Name</strong>: Name of passenger</li>
+<li><strong>Sex</strong>: Sex of the passenger</li>
+<li><strong>Age</strong>: Age of the passenger (Some entries contain <code>NaN</code>)</li>
+<li><strong>SibSp</strong>: Number of siblings and spouses of the passenger aboard</li>
+<li><strong>Parch</strong>: Number of parents and children of the passenger aboard</li>
+<li><strong>Ticket</strong>: Ticket number of the passenger</li>
+<li><strong>Fare</strong>: Fare paid by the passenger</li>
+<li><strong>Cabin</strong> Cabin number of the passenger (Some entries contain <code>NaN</code>)</li>
+<li><strong>Embarked</strong>: Port of embarkation of the passenger (C = Cherbourg; Q = Queenstown; S = Southampton)</li>
+</ul>
+<p>Since we’re interested in the outcome of survival for each passenger or crew member, we can remove the <strong>Survived</strong> feature from this dataset and store it as its own separate variable <code>outcomes</code>. We will use these outcomes as our prediction targets.<br>Run the code cell below to remove <strong>Survived</strong> as a feature of the dataset and store it in <code>outcomes</code>.</p>
+<pre><code># Store the &apos;Survived&apos; feature in a new variable and remove it from the dataset
+outcomes = full_data[&apos;Survived&apos;]
+data = full_data.drop(&apos;Survived&apos;, axis = 1)
+
+# Show the new dataset with &apos;Survived&apos; removed
+display(data.head())
+</code></pre><p>The very same sample of the RMS Titanic data now shows the <strong>Survived</strong> feature removed from the DataFrame. Note that <code>data</code> (the passenger data) and <code>outcomes</code> (the outcomes of survival) are now <em>paired</em>. That means for any passenger <code>data.loc[i]</code>, they have the survival outcome <code>outcome[i]</code>.</p>
+<p>To measure the performance of our predictions, we need a metric to score our predictions against the true outcomes of survival. Since we are interested in how <em>accurate</em> our predictions are, we will calculate the proportion of passengers where our prediction of their survival is correct. Run the code cell below to create our <code>accuracy_score</code> function and test a prediction on the first five passengers.  </p>
+<p><strong>Think:</strong> <em>Out of the first five passengers, if we predict that all of them survived, what would you expect the accuracy of our predictions to be?</em></p>
+<pre><code>def accuracy_score(truth, pred):
+    &quot;&quot;&quot; Returns accuracy score for input truth and predictions. &quot;&quot;&quot;
+
+    # Ensure that the number of predictions matches number of outcomes
+    if len(truth) == len(pred): 
+
+        # Calculate and return the accuracy as a percent
+        return &quot;Predictions have an accuracy of {:.2f}%.&quot;.format((truth == pred).mean()*100)
+
+    else:
+        return &quot;Number of predictions does not match number of outcomes!&quot;
+
+# Test the &apos;accuracy_score&apos; function
+predictions = pd.Series(np.ones(5, dtype = int))
+print accuracy_score(outcomes[:5], predictions)
+
+Predictions have an accuracy of 60.00%.
+</code></pre><blockquote>
+<p><strong>Tip:</strong> If you save an iPython Notebook, the output from running code blocks will also be saved. However, the state of your workspace will be reset once a new session is started. Make sure that you run all of the code blocks from your previous session to reestablish variables and functions before picking up where you last left off.</p>
+</blockquote>
+<h1 id="Making_Predictions"><a href="#Making_Predictions" class="headerlink" title="Making Predictions"></a>Making Predictions</h1><p>If we were asked to make a prediction about any passenger aboard the RMS Titanic whom we knew nothing about, then the best prediction we could make would be that they did not survive. This is because we can assume that a majority of the passengers (more than 50%) did not survive the ship sinking.<br>The <code>predictions_0</code> function below will always predict that a passenger did not survive.</p>
+<pre><code>def predictions_0(data):
+    &quot;&quot;&quot; Model with no features. Always predicts a passenger did not survive. &quot;&quot;&quot;
+
+    predictions = []
+    for _, passenger in data.iterrows():
+
+        # Predict the survival of &apos;passenger&apos;
+        predictions.append(0)
+
+    # Return our predictions
+    return pd.Series(predictions)
+
+# Make the predictions
+predictions = predictions_0(data)
+</code></pre><h3 id="Question_1"><a href="#Question_1" class="headerlink" title="Question 1"></a>Question 1</h3><p><em>Using the RMS Titanic data, how accurate would a prediction be that none of the passengers survived?</em><br><strong>Hint:</strong> Run the code cell below to see the accuracy of this prediction.</p>
+<pre><code>print accuracy_score(outcomes, predictions)
+
+Predictions have an accuracy of 61.62%.
+</code></pre><p><strong>Answer:</strong> <em> Predictions have an accuracy of 61.62% </em></p>
+<hr>
+<p>Let’s take a look at whether the feature <strong>Sex</strong> has any indication of survival rates among passengers using the <code>survival_stats</code> function. This function is defined in the <code>titanic_visualizations.py</code> Python script included with this project. The first two parameters passed to the function are the RMS Titanic data and passenger survival outcomes, respectively. The third parameter indicates which feature we want to plot survival statistics across.<br>Run the code cell below to plot the survival outcomes of passengers based on their sex.</p>
+<pre><code>survival_stats(data, outcomes, &apos;Sex&apos;)
+</code></pre><!--<img src="http://ww1.sinaimg.cn/large/713ab781gw1f2oggp3yq7j20ah074mxc.jpg" class="[class output_13_0]" title="output Place">–&gt;
+<!-- <img src="http://ww1.sinaimg.cn/large/713ab781gw1f2oggp3yq7j20ah074mxc.jpg" alt="图片名称" align=center /> -->
+<p><img src="http://ww3.sinaimg.cn/large/713ab781jw1f40igyfom9j20du0axjrs.jpg" alt="output_13_0"></p>
+<p>Examining the survival statistics, a large majority of males did not survive the ship sinking. However, a majority of females <em>did</em> survive the ship sinking. Let’s build on our previous prediction: If a passenger was female, then we will predict that they survived. Otherwise, we will predict the passenger did not survive.<br>Fill in the missing code below so that the function will make this prediction.<br><strong>Hint:</strong> You can access the values of each feature for a passenger like a dictionary. For example, <code>passenger[&#39;Sex&#39;]</code> is the sex of the passenger.</p>
+<pre><code>def predictions_1(data):
+    &quot;&quot;&quot; Model with one feature: 
+            - Predict a passenger survived if they are female. &quot;&quot;&quot;
+
+    predictions = []
+    for _, passenger in data.iterrows():
+
+        # Remove the &apos;pass&apos; statement below 
+        # and write your prediction conditions here
+        if passenger[&apos;Sex&apos;] == &apos;female&apos;:
+            predictions.append(1)
+        else:
+            predictions.append(0)
+
+
+    # Return our predictions
+    return pd.Series(predictions)
+
+# Make the predictions
+predictions = predictions_1(data)
+</code></pre><h3 id="Question_2"><a href="#Question_2" class="headerlink" title="Question 2"></a>Question 2</h3><p><em>How accurate would a prediction be that all female passengers survived and the remaining passengers did not survive?</em><br><strong>Hint:</strong> Run the code cell below to see the accuracy of this prediction.</p>
+<pre><code>print accuracy_score(outcomes, predictions)
+
+Predictions have an accuracy of 78.68%.
+</code></pre><p><strong>Answer</strong>: <em>Predictions have an accuracy of 78.68%.</em></p>
+<hr>
+<p>Using just the <strong>Sex</strong> feature for each passenger, we are able to increase the accuracy of our predictions by a significant margin. Now, let’s consider using an additional feature to see if we can further improve our predictions. For example, consider all of the male passengers aboard the RMS Titanic: Can we find a subset of those passengers that had a higher rate of survival? Let’s start by looking at the <strong>Age</strong> of each male, by again using the <code>survival_stats</code> function. This time, we’ll use a fourth parameter to filter out the data so that only passengers with the <strong>Sex</strong> ‘male’ will be included.<br>Run the code cell below to plot the survival outcomes of male passengers based on their age.</p>
+<pre><code>survival_stats(data, outcomes, &apos;Age&apos;, [&quot;Sex == &apos;male&apos;&quot;])
+</code></pre><p><img src="http://ww1.sinaimg.cn/large/713ab781jw1f40iizk5d7j20e10axgm4.jpg" alt="output_20_0"></p>
+<p>Examining the survival statistics, the majority of males younger then 10 survived the ship sinking, whereas most males age 10 or older <em>did not survive</em> the ship sinking. Let’s continue to build on our previous prediction: If a passenger was female, then we will predict they survive. If a passenger was male and younger than 10, then we will also predict they survive. Otherwise, we will predict they do not survive.<br>Fill in the missing code below so that the function will make this prediction.<br><strong>Hint:</strong> You can start your implementation of this function using the prediction code you wrote earlier from <code>predictions_1</code>.</p>
+<pre><code>def predictions_2(data):
+    &quot;&quot;&quot; Model with two features: 
+            - Predict a passenger survived if they are female.
+            - Predict a passenger survived if they are male and younger than 10. &quot;&quot;&quot;
+
+    predictions = []
+    for _, passenger in data.iterrows():
+
+        # Remove the &apos;pass&apos; statement below 
+        # and write your prediction conditions here
+        if passenger[&apos;Sex&apos;] == &apos;female&apos;:
+            predictions.append(1)
+        elif passenger[&apos;Age&apos;]&lt;=10:
+            predictions.append(1)
+        else:
+            predictions.append(0)
+
+    # Return our predictions
+    return pd.Series(predictions)
+
+# Make the predictions
+predictions = predictions_2(data)
+</code></pre><h3 id="Question_3"><a href="#Question_3" class="headerlink" title="Question 3"></a>Question 3</h3><p><em>How accurate would a prediction be that all female passengers and all male passengers younger than 10 survived?</em><br><strong>Hint:</strong> Run the code cell below to see the accuracy of this prediction.</p>
+<pre><code>print accuracy_score(outcomes, predictions)
+
+Predictions have an accuracy of 79.24%.
+</code></pre><p><strong>Answer</strong>: <em>Predictions have an accuracy of 79.24%.</em></p>
+<hr>
+<p>Adding the feature <strong>Age</strong> as a condition in conjunction with <strong>Sex</strong> improves the accuracy by a small margin more than with simply using the feature <strong>Sex</strong> alone. Now it’s your turn: Find a series of features and conditions to split the data on to obtain an outcome prediction accuracy of at least 80%. This may require multiple features and multiple levels of conditional statements to succeed. You can use the same feature multiple times with different conditions.<br><strong>Pclass</strong>, <strong>Sex</strong>, <strong>Age</strong>, <strong>SibSp</strong>, and <strong>Parch</strong> are some suggested features to try.</p>
+<p>Use the <code>survival_stats</code> function below to to examine various survival statistics.<br><strong>Hint:</strong> To use mulitple filter conditions, put each condition in the list passed as the last argument. Example: <code>[&quot;Sex == &#39;male&#39;&quot;, &quot;Age &lt; 18&quot;]</code></p>
+<pre><code>survival_stats(data, outcomes, &apos;Age&apos;,[&quot;Sex == &apos;female&apos;&quot;,&quot;Pclass == 3&quot;])
+</code></pre><p><img src="http://ww3.sinaimg.cn/large/713ab781jw1f40ikdnwjkj20du0axq3e.jpg" alt="output"></p>
+<p>After exploring the survival statistics visualization, fill in the missing code below so that the function will make your prediction.<br>Make sure to keep track of the various features and conditions you tried before arriving at your final prediction model.<br><strong>Hint:</strong> You can start your implementation of this function using the prediction code you wrote earlier from <code>predictions_2</code>.</p>
+<pre><code>def predictions_3(data):
+    &quot;&quot;&quot; Model with multiple features. Makes a prediction with an accuracy of at least 80%. &quot;&quot;&quot;
+
+    predictions = []
+    for _, passenger in data.iterrows():
+
+        # Remove the &apos;pass&apos; statement below 
+        # and write your prediction conditions here
+        if passenger[&apos;Sex&apos;] == &apos;female&apos;:
+            if passenger[&apos;Pclass&apos;]==3 and passenger[&apos;Age&apos;]&lt;=50 and passenger[&apos;Age&apos;]&gt;=40:
+                predictions.append(0)
+            else:
+                predictions.append(1)
+        elif passenger[&apos;Age&apos;]&lt;=10:
+            predictions.append(1)
+        else:
+            predictions.append(0)
+
+    # Return our predictions
+    return pd.Series(predictions)
+
+# Make the predictions
+predictions = predictions_3(data)
+</code></pre><h3 id="Question_4"><a href="#Question_4" class="headerlink" title="Question 4"></a>Question 4</h3><p><em>Describe the steps you took to implement the final prediction model so that it got an accuracy of at least 80%. What features did you look at? Were certain features more informative than others? Which conditions did you use to split the survival outcomes in the data? How accurate are your predictions?</em><br><strong>Hint:</strong> Run the code cell below to see the accuracy of your predictions.</p>
+<pre><code>print accuracy_score(outcomes, predictions)
+
+Predictions have an accuracy of 80.25%.
+</code></pre><blockquote>
+<p><strong>Answer</strong>: <em>Predictions have an accuracy of 80.25%.</em></p>
+<h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1></blockquote>
+<p>After several iterations of exploring and conditioning on the data, you have built a useful algorithm for predicting the survival of each passenger aboard the RMS Titanic. The technique applied in this project is a manual implementation of a simple machine learning model, the <em>decision tree</em>. A decision tree splits a set of data into smaller and smaller groups (called <em>nodes</em>), by one feature at a time. Each time a subset of the data is split, our predictions become more accurate if each of the resulting subgroups are more homogeneous (contain similar labels) than before. The advantage of having a computer do things for us is that it will be more exhaustive and more precise than our manual exploration above. <a href="http://www.r2d3.us/visual-intro-to-machine-learning-part-1/" target="_blank" rel="external">This link</a> provides another introduction into machine learning using a decision tree.</p>
+<p>A decision tree is just one of many models that come from <em>supervised learning</em>. In supervised learning, we attempt to use features of the data to predict or model things with objective outcome labels. That is to say, each of our data points has a known outcome value, such as a categorical, discrete label like <code>&#39;Survived&#39;</code>, or a numerical, continuous value like predicting the price of a house.</p>
+<h3 id="Question_5"><a href="#Question_5" class="headerlink" title="Question 5"></a>Question 5</h3><p><em>Think of a real-world scenario where supervised learning could be applied. What would be the outcome variable that you are trying to predict? Name two features about the data used in this scenario that might be helpful for making the predictions.</em>  </p>
+<p><strong>Answer</strong>: <em>House price predict is a supervised learning. We can use the house’s area, size and years and so on to prediction the house’s price.</em></p>
+<blockquote>
+<p><strong>Note</strong>: Once you have completed all of the code implementations and successfully answered each question above, you may finalize your work by exporting the iPython Notebook as an HTML document. You can do this by using the menu above and navigating to<br><strong>File -&gt; Download as -&gt; HTML (.html)</strong>. Include the finished document along with this notebook as your submission.</p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton", disable="enable", onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}", style="cursor: pointer; border: 0; outline: 0; border-radius: 100%; padding: 0; margin: 0; letter-spacing: normal; text-transform: none; text-indent: 0px; text-shadow: none">
+    <span onmouseover="this.style.color='rgb(236,96,0)';this.style.background='rgb(204,204,204)'" onMouseOut="this.style.color='#fff';this.style.background='rgb(236,96,0)'" style="display: inline-block; width: 70px; height: 70px; border-radius: 100%; line-height: 81px; color: #fff; font: 400 35px/75px 'microsofty'; background: rgb(236,96,0)">赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="落 网 WeChat Pay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>微信打赏</p>
+      </div>
+    
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="落 网 Alipay" style="width: 200px; max-width: 100%; display: inline-block"/>
+        <p>支付宝打赏</p>
+      </div>
+    
+  </div>
+<div>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Titanic/" rel="tag">#Titanic</a>
+          
+            <a href="/tags/Udacity/" rel="tag">#Udacity</a>
+          
+            <a href="/tags/machine-learning/" rel="tag">#machine learning</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/04/07/CA交通流模型/" rel="next" title="CA自行车流模型">
+                <i class="fa fa-chevron-left"></i> CA自行车流模型
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/05/19/Udacity机器学习-Titanic-Survival-Exploration/"
+     data-title="Udacity机器学习:Titanic Survival Exploration"
+     data-content=""
+     data-url="http://yoursite.com/2016/05/19/Udacity机器学习-Titanic-Survival-Exploration/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/05/19/Udacity机器学习-Titanic-Survival-Exploration/"
+           data-title="Udacity机器学习:Titanic Survival Exploration" data-url="http://yoursite.com/2016/05/19/Udacity机器学习-Titanic-Survival-Exploration/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.png"
+               alt="落 网" />
+          <p class="site-author-name" itemprop="name">落 网</p>
+          <p class="site-description motion-element" itemprop="description">推荐系统 | python | 数据挖掘</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/edcmartin" target="_blank">
+                  
+                    <i class="fa fa-github"></i> GitHub
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/edc_martinyao" target="_blank">
+                  
+                    <i class="fa fa-twitter"></i> Twitter
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/yaoyunf" target="_blank">
+                  
+                    <i class="fa fa-weibo"></i> 微博
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/edcmartin" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> 知乎
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+            <div class="links-of-blogroll-title">Links</div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://yiboin.github.io/" target="_blank">yibo</a>
+                </li>
+              
+            </ul>
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Machine_Learning_Engineer_Nanodegree"><span class="nav-number">1.</span> <span class="nav-text">Machine Learning Engineer Nanodegree</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction_and_Foundations"><span class="nav-number">1.1.</span> <span class="nav-text">Introduction and Foundations</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Project_0_3A_Titanic_Survival_Exploration"><span class="nav-number">1.2.</span> <span class="nav-text">Project 0: Titanic Survival Exploration</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Getting_Started"><span class="nav-number">2.</span> <span class="nav-text">Getting Started</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Making_Predictions"><span class="nav-number">3.</span> <span class="nav-text">Making Predictions</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Question_1"><span class="nav-number">3.0.1.</span> <span class="nav-text">Question 1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Question_2"><span class="nav-number">3.0.2.</span> <span class="nav-text">Question 2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Question_3"><span class="nav-number">3.0.3.</span> <span class="nav-text">Question 3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Question_4"><span class="nav-number">3.0.4.</span> <span class="nav-text">Question 4</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Conclusion"><span class="nav-number">4.</span> <span class="nav-text">Conclusion</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Question_5"><span class="nav-number">4.0.1.</span> <span class="nav-text">Question 5</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">落 网</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+
+  
+
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+<script type="text/javascript" src="/vendors/jquery-scrollintoview/jquery.scrollintoview.min.js?v=0.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=0.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"edcmartin"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+
+  
+    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/MathJax.js"></script>
+    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/config/TeX-AMS-MML_HTMLorMML.js"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
